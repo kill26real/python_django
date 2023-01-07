@@ -10,18 +10,20 @@ class SimpleGetHandler(BaseHTTPRequestHandler):
         self.send_header("Content-type", "text/html; charset=utf-8")
         self.end_headers()
 
-    def _html(self, message):
+    def _html(self, message, msg):
         content = (f"<html>"
                    f"<body>"
                    f"<h1>{message}</h1>"
+                   f"<p>{msg}</p>"
                    f"</body>"
                    f"</html>")
         return content.encode("utf8")
 
     def do_GET(self):
         self._set_headers()
-        message = "Привет, мир!"
-        self.wfile.write(self._html(message))
+        message = "Привет, Алиса!"
+        msg = "ты самая лучшая"
+        self.wfile.write(self._html(message, msg))
 
 
 def run_server(server_class=HTTPServer, handler_class=BaseHTTPRequestHandler):

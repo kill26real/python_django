@@ -6,9 +6,9 @@ from django.views import View
 class ToDoView(View):
 
     def get(self, request, *args, **kwargs):
-        return HttpResponse('<ul>'
-                            '<li>Установить python</li>'
-                            '<li>Установить django</li>'
-                            '<li>Запустить сервер</li>'
-                            '<li>Порадоваться результату</li>'
+        return HttpResponse('<p><b>Список дел на день:</b></p>'
+                            '<ul>'
+                            '<li>Проснуться</li>'
+                            '<li>Покодить</li>'
+                            '<li>Лечь спать</li>'
                             '</ul>')
